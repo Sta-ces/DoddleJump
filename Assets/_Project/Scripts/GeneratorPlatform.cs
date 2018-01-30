@@ -10,9 +10,15 @@ public class GeneratorPlatform : MonoBehaviour {
 
     private void Awake()
     {
-        cameraViewSize = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, -Camera.main.transform.position.z));
-        
+        cameraViewSize = Calcul.ScreenSize(Camera.main);
+
         SpawnPlatform();
+    }
+
+    private void Start()
+    {
+        m_minSpaceBetweenPlatform = PlateformBouncing.Jump / 10f;
+        m_maxSpaceBetweenPlatform = m_minSpaceBetweenPlatform + .5f;
     }
 
     private void Update()

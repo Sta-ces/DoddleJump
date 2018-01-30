@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4db7abb345352fd4796d656e23aeb07a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpHigher: 5
+  JumpHigher: 7.5
 --- !u!212 &212803711955524282
 SpriteRenderer:
   m_ObjectHideFlags: 1

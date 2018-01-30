@@ -30,4 +30,9 @@ public class Calcul
     {
         return -_sizeTile / 2 + 0.5f + _positionTile;
     }
+
+    public static Vector3 ScreenSize(Camera _camera)
+    {
+        return _camera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, -_camera.transform.position.z));
+    }
 }
