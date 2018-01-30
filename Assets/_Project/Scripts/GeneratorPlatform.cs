@@ -5,54 +5,39 @@ using UnityEngine;
 public class GeneratorPlatform : MonoBehaviour {
 
     public GameObject m_PrefabsPlatform;
+    public int m_NumberOfPlatformsToSpawn = 100;
 
 
     private void Awake()
     {
         cameraViewSize = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, -Camera.main.transform.position.z));
-        print(cameraViewSize);
-
-        m_MaxSpaceBetweenPlatform = PlateformBouncing.JumpHigher;
-
+        
         SpawnPlatform();
+    }
+
+    private void Update()
+    {
+        if (m_lastPlateform.y - cameraViewSize.y <= Camera.main.transform.position.y)
+            SpawnPlatform();
     }
 
 
     private void SpawnPlatform()
     {
-        Vector3 spawnPosition = new Vector3();
-
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < m_NumberOfPlatformsToSpawn; i++)
         {
-            spawnPosition.y += Random.Range(m_MinSpaceBetweenPlatform, m_MaxSpaceBetweenPlatform);
+            spawnPosition.y += Random.Range(m_minSpaceBetweenPlatform, m_maxSpaceBetweenPlatform);
             spawnPosition.x = Random.Range(-cameraViewSize.x, cameraViewSize.x);
-            Instantiate(m_PrefabsPlatform, spawnPosition, Quaternion.identity);
+            GameObject platform = Instantiate(m_PrefabsPlatform, spawnPosition, Quaternion.identity);
+            if (i == m_NumberOfPlatformsToSpawn - 1)
+                m_lastPlateform = platform.transform.position;
         }
     }
 
 
     private Vector3 cameraViewSize;
-    private float m_MinSpaceBetweenPlatform = .2f;
-    private float m_MaxSpaceBetweenPlatform = 1f;
-
-    /*public GameObject platformPrefab;
-
-    public int numberOfPlatforms = 200;
-    public float levelWidth = 3f;
-    public float minY = .2f;
-    public float maxY = 1.5f;
-
-    // Use this for initialization
-    void Start()
-    {
-
-        Vector3 spawnPosition = new Vector3();
-
-        for (int i = 0; i < numberOfPlatforms; i++)
-        {
-            spawnPosition.y += Random.Range(minY, maxY);
-            spawnPosition.x = Random.Range(-levelWidth, levelWidth);
-            Instantiate(platformPrefab, spawnPosition, Quaternion.identity);
-        }
-    }*/
+    private Vector3 spawnPosition = new Vector3();
+    private float m_minSpaceBetweenPlatform = .2f;
+    private float m_maxSpaceBetweenPlatform = 1f;
+    private Vector3 m_lastPlateform;
 }

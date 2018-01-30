@@ -693,6 +693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PrefabsPlatform: {fileID: 1226286668502212, guid: 0516153b1b52888489f233b07af92db5,
     type: 2}
+  m_NumberOfPlatformsToSpawn: 25
 --- !u!1001 &2084518893
 Prefab:
   m_ObjectHideFlags: 0
