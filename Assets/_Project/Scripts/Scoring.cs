@@ -52,7 +52,7 @@ public class Scoring : MonoBehaviour {
     }
 
 
-    private float m_score = 0;
+    public static float m_score = 0;
     private float m_highScore = 0;
     private Vector2 m_lastPosition;
 

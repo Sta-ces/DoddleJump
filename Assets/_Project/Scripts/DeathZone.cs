@@ -21,7 +21,7 @@ public class DeathZone : MonoBehaviour {
 
     private void LateUpdate()
     {
-        transform.position = new Vector2(0f, ((-m_cameraScreen.y * .5f) - (transform.lossyScale.y * 2)) + Camera.main.transform.position.y);
+        transform.position = new Vector2(0f, (-m_cameraScreen.y + (transform.lossyScale.y * .5f)) + Camera.main.transform.position.y);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -29,7 +29,7 @@ public class DeathZone : MonoBehaviour {
         if (other.gameObject.GetComponent<PlayerController2D>() != null)
         {
             print("GAME OVER!");
-            m_GameOverText.text = "Game Over";
+            m_GameOverText.text = "Score : "+Scoring.m_score;
             other.gameObject.SetActive(false);
         }
         else if(other.gameObject.GetComponent<PlateformBouncing>() != null)
