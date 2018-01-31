@@ -6,7 +6,7 @@ public class CameraFollow : MonoBehaviour {
 
     public Transform m_TargetToFollow;
 
-    private void Update()
+    private void LateUpdate()
     {
         if (m_TargetToFollow.position.y > transform.position.y)
         {
