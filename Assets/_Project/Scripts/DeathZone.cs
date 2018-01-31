@@ -6,6 +6,8 @@ public class DeathZone : MonoBehaviour {
 
     public Text m_LocationGameOver;
     public string m_TextGameOver;
+    public Button m_ButtonStart;
+    public Button m_ButtonQuit;
 
 
     private void Awake()
@@ -29,13 +31,14 @@ public class DeathZone : MonoBehaviour {
     {
         if (other.gameObject.GetComponent<PlayerController2D>() != null)
         {
-            print("GAME OVER!");
-            m_LocationGameOver.text = m_TextGameOver+"\n"+Scoring.m_score;
+            m_LocationGameOver.text = m_TextGameOver+"\n"+Scoring.score;
             other.gameObject.SetActive(false);
+            m_ButtonQuit.gameObject.SetActive(true);
+            m_ButtonStart.gameObject.SetActive(true);
+            m_ButtonStart.gameObject.GetComponentInChildren<Text>().text = "Again";
         }
         else if(other.gameObject.GetComponent<PlateformBouncing>() != null)
         {
-            print("PLATFORM DESTROY!");
             Destroy(other.gameObject);
         }
     }

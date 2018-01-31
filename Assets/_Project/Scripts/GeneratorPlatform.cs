@@ -1,19 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GeneratorPlatform : MonoBehaviour {
 
     public GameObject m_PrefabsPlatform;
     public int m_NumberOfPlatformsToSpawn = 100;
     public float m_SpaceBetweenPlatform = .5f;
-    /*public float m_MinSpaceBetweenPlatform = .2f;
-    public float m_MaxSpaceBetweenPlatform = .8f;*/
+
+    public float m_MaxScreenWidthSpawnPlatform = 7.5f;
 
 
     private void Awake()
     {
         cameraViewSize = Calcul.ScreenSize(Camera.main);
+
+        if (cameraViewSize.x > m_MaxScreenWidthSpawnPlatform)
+            cameraViewSize.x = m_MaxScreenWidthSpawnPlatform;
+
+        m_SpaceBetweenPlatform = RemoteSettings.GetFloat("SpaceBetweenPlatform", m_SpaceBetweenPlatform);
 
         SpawnPlatform();
     }

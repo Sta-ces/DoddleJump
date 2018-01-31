@@ -9,6 +9,7 @@ public class PlateformBouncing : MonoBehaviour {
 
     private void Awake()
     {
+        JumpHigher = RemoteSettings.GetFloat("JumpHigher" ,JumpHigher);
         Jump = JumpHigher;
     }
 
