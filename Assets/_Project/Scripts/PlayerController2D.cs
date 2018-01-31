@@ -20,7 +20,12 @@ public class PlayerController2D : MonoBehaviour {
 
     private void MovePlayer2D()
     {
-        float horizontalMoves = Input.GetAxisRaw("Horizontal");
+        #if UNITY_ANDROID
+                float horizontalMoves = Input.acceleration.x;
+        #else
+            float horizontalMoves = Input.GetAxisRaw("Horizontal");
+        #endif
+
         Vector2 velocity = m_rigidbody2D.velocity;
 
         velocity.x = horizontalMoves * m_SpeedPlayer;
