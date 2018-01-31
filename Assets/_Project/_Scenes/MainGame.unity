@@ -152,6 +152,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1226286668502212, guid: 0516153b1b52888489f233b07af92db5, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 50236374182098914, guid: 0516153b1b52888489f233b07af92db5, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 0516153b1b52888489f233b07af92db5, type: 2}
@@ -455,7 +459,7 @@ GameObject:
   - component: {fileID: 520289283}
   - component: {fileID: 520289282}
   - component: {fileID: 520289281}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DeathZone
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}

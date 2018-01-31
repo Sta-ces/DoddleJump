@@ -1,10 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
 
     public Transform m_TargetToFollow;
+
+    public static Vector3 StartPositionCamera;
+
+    private void Awake()
+    {
+        StartPositionCamera = transform.position;
+    }
 
     private void LateUpdate()
     {

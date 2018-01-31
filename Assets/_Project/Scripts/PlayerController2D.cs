@@ -5,11 +5,14 @@ public class PlayerController2D : MonoBehaviour {
 
     public float m_SpeedPlayer = 5f;
 
+    public static Vector3 StartPositionPlayer;
+
 
     private void Awake()
     {
         m_rigidbody2D = GetComponent<Rigidbody2D>();
         m_cameraView = Calcul.ScreenSize(Camera.main);
+        StartPositionPlayer = transform.position;
     }
 
     private void FixedUpdate()

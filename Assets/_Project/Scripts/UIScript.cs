@@ -31,13 +31,13 @@ public class UIScript : MonoBehaviour {
         #else
             m_TextToBegin = "Space";
         #endif
-
-        m_LocationTextStart.text = m_TextToBegin + m_TextWhatIDo;
     }
 
     private void Start()
     {
         Time.timeScale = 0;
+        m_TextWhatIDo = " to Start";
+        m_LocationTextStart.text = m_TextToBegin + m_TextWhatIDo;
     }
 
     private void Update()
@@ -50,44 +50,43 @@ public class UIScript : MonoBehaviour {
 
         if (input)
         {
-            if (isDead)
+            // If the game is paused
+            if (m_LocationTextStart.gameObject.activeSelf)
             {
-                LoadingLevel.Restart();
-                isDead = false;
+                if (m_LocationTextGameOver.gameObject.activeSelf)
+                {
+                    LoadingLevel.Restart();
+                    m_LocationTextGameOver.gameObject.SetActive(false);
+                }
+                else
+                {
+                    Time.timeScale = 1;
+                    m_LocationTextPaused.gameObject.SetActive(false);
+                    m_QuitButton.gameObject.SetActive(false);
+                    m_LocationTextStart.gameObject.SetActive(false);
+                }
             }
+            // If the game is running
             else
             {
-                OnPaused();
-                DisplayPaused();
+                Time.timeScale = 0;
+                m_LocationTextPaused.gameObject.SetActive(true);
+                m_QuitButton.gameObject.SetActive(true);
+                m_LocationTextStart.gameObject.SetActive(true);
             }
         }
 
-        /*if (isDead)
+        if (isDead)
         {
-            m_TextWhatIDo = " to Restart";
-            m_LocationTextGameOver.text = "Game Over\n" + Scoring.score;
-            m_LocationTextGameOver.gameObject.SetActive(true);
-        }*/
-    }
-
-
-    private void OnPaused()
-    {
-        if (Time.timeScale == 1)
             Time.timeScale = 0;
-        else
-            Time.timeScale = 1;
-    }
+            m_TextWhatIDo = " to Restart";
+            m_LocationTextStart.text = m_TextToBegin + m_TextWhatIDo;
+            m_LocationTextGameOver.text = "Game Over\n" + Scoring.score;
 
-    private void DisplayPaused()
-    {
-        if (!isDebut)
-            m_LocationTextPaused.gameObject.SetActive(!m_LocationTextPaused.gameObject.activeSelf);
-
-
-        m_LocationTextStart.gameObject.SetActive(!m_LocationTextStart.gameObject.activeSelf);
-        m_QuitButton.gameObject.SetActive(!m_QuitButton.gameObject.activeSelf);
-        isDebut = false;
+            m_LocationTextGameOver.gameObject.SetActive(true);
+            m_QuitButton.gameObject.SetActive(true);
+            m_LocationTextStart.gameObject.SetActive(true);
+        }
     }
 
 
