@@ -4,14 +4,15 @@ using UnityEngine.UI;
 [RequireComponent(typeof(BoxCollider2D))]
 public class DeathZone : MonoBehaviour {
 
-    public Text m_GameOverText;
+    public Text m_LocationGameOver;
+    public string m_TextGameOver;
 
 
     private void Awake()
     {
         m_cameraScreen = Calcul.ScreenSize(Camera.main);
         GetComponent<BoxCollider2D>().isTrigger = true;
-        m_GameOverText.text = "";
+        m_LocationGameOver.text = "";
     }
 
     private void Start()
@@ -29,7 +30,7 @@ public class DeathZone : MonoBehaviour {
         if (other.gameObject.GetComponent<PlayerController2D>() != null)
         {
             print("GAME OVER!");
-            m_GameOverText.text = "Score : "+Scoring.m_score;
+            m_LocationGameOver.text = m_TextGameOver+"\n"+Scoring.m_score;
             other.gameObject.SetActive(false);
         }
         else if(other.gameObject.GetComponent<PlateformBouncing>() != null)
