@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 58964705}
   - component: {fileID: 58964707}
   - component: {fileID: 58964708}
+  - component: {fileID: 58964709}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -189,7 +190,7 @@ MonoBehaviour:
     type: 2}
   m_NumberOfPlatformsToSpawn: 100
   m_SpaceBetweenPlatform: 2
-  m_MaxWidthSpawnPlatform: 7.5
+  m_MaxScreenWidthSpawnPlatform: 5
 --- !u!4 &58964706
 Transform:
   m_ObjectHideFlags: 0
@@ -226,6 +227,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39421bc06c8f5644ab14e09718f24582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &58964709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 58964704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d98da9934b38154e94fbb472954c6af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &150726710
@@ -802,6 +814,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 58964708}
         m_MethodName: Restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 58964709}
+        m_MethodName: MoneyMoney
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

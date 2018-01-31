@@ -20,7 +20,7 @@ public class PlayerController2D : MonoBehaviour {
 
     private void MovePlayer2D()
     {
-        #if UNITY_ANDROID
+        #if UNITY_ANDROID && !UNITY_EDITOR
                 float horizontalMoves = Input.acceleration.x;
         #else
             float horizontalMoves = Input.GetAxisRaw("Horizontal");
