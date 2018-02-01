@@ -20,7 +20,7 @@ public class LoadingLevel : MonoBehaviour {
         Application.Quit();
     }
 
-    public void LoadLevel(int _level)
+    public void LoadAsyncLevel(int _level)
     {
         StartCoroutine(LoadLevelAsync(_level));
     }
