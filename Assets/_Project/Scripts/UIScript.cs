@@ -53,10 +53,13 @@ public class UIScript : MonoBehaviour {
             // If the game is paused
             if (m_LocationTextStart.gameObject.activeSelf)
             {
+                print("Hello");
                 if (m_LocationTextGameOver.gameObject.activeSelf)
                 {
-                    LoadingLevel.Restart();
+                    print("Coucou");
                     m_LocationTextGameOver.gameObject.SetActive(false);
+                    m_QuitButton.gameObject.SetActive(true);
+                    LoadingLevel.Restart();
                 }
                 else
                 {
