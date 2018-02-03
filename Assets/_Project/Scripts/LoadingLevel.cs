@@ -15,6 +15,11 @@ public class LoadingLevel : MonoBehaviour {
         Scoring.score = 0;
     }
 
+    public void QuitApp()
+    {
+        QuitApplication();
+    }
+
     public static void QuitApplication()
     {
         Application.Quit();

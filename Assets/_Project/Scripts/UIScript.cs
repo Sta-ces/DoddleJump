@@ -53,13 +53,11 @@ public class UIScript : MonoBehaviour {
             // If the game is paused
             if (m_LocationTextStart.gameObject.activeSelf)
             {
-                print("Hello");
                 if (m_LocationTextGameOver.gameObject.activeSelf)
                 {
-                    print("Coucou");
-                    m_LocationTextGameOver.gameObject.SetActive(false);
-                    m_QuitButton.gameObject.SetActive(true);
+                    isDead = false;
                     LoadingLevel.Restart();
+                    m_LocationTextGameOver.gameObject.SetActive(false);
                 }
                 else
                 {
@@ -85,7 +83,7 @@ public class UIScript : MonoBehaviour {
             m_TextWhatIDo = " to Restart";
             m_LocationTextStart.text = m_TextToBegin + m_TextWhatIDo;
             m_LocationTextGameOver.text = "Game Over\n" + Scoring.score;
-
+            
             m_LocationTextGameOver.gameObject.SetActive(true);
             m_QuitButton.gameObject.SetActive(true);
             m_LocationTextStart.gameObject.SetActive(true);
